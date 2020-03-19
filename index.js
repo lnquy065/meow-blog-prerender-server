@@ -15,9 +15,9 @@ app.use(secure);
 // Use prerender io middleware
 app.use(prerender.set('prerenderToken', prerenderToken));
 
-// Serve index.html on every url.
-app.get('*', (req, res) => {
-  res.send(indexHtml);
-});
+// // Serve index.html on every url.
+// app.get('*', (req, res) => {
+//   res.send(indexHtml);
+// });
 
 app.listen(port);
