@@ -4,7 +4,7 @@ const prerender = require('prerender-node');
 
 // Load from env vars
 const port = process.env.PORT || 3000;
-const indexHtml = process.env.INDEX_HTML || "index.html";
+const indexHtml = process.env.INDEX_HTML;
 const prerenderToken = process.env.PRERENDER_TOKEN || "OYGKlItadAWI1LuHMUAa";
 
 const app = express();
@@ -15,9 +15,9 @@ app.use(secure);
 // Use prerender io middleware
 app.use(prerender.set('prerenderToken', prerenderToken));
 
-// // Serve index.html on every url.
-// app.get('*', (req, res) => {
-//   res.send(indexHtml);
-// });
+// Serve index.html on every url.
+app.get('*', (req, res) => {
+  res.send(indexHtml);
+});
 
 app.listen(port);
