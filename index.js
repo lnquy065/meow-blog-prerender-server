@@ -17,7 +17,7 @@ app.use(prerender.set('prerenderToken', prerenderToken));
 
 // Serve index.html on every url.
 app.get('*', (req, res) => {
-  res.send(indexHtml);
+  res.redirect(process.env.INDEX_HTML);
 });
 
 app.listen(port);
